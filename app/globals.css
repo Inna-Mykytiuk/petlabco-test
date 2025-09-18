@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 22.5rem;
+  --breakpoint-md: 30rem;
+  --breakpoint-lg: 48rem;
+  --breakpoint-xl: 80rem;
+
+  /* Colors */
+  --color-*: initial;
+  --color-white: #fff;
+  --color-purple: #3f3cbb;
+  --color-midnight: #121063;
+
+  /* Fonts */
+  --font-sans: "var(--font-alpino)", sans-serif;
+
+  /* Animation */
+  --animate-slide-left: slide-left 3s linear infinite;
+  --animate-spin-slow: spin 6s linear infinite;
+
+  @keyframes slide-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+
+  @variant md {
+    padding-inline: 20px;
+  }
+
+  @variant lg {
+    padding-inline: 50px;
+  }
+
+  @variant xl {
+    padding-inline: 100px;
+  }
+}
