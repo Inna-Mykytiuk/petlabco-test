@@ -1,9 +1,9 @@
 "use client";
 
 import FiltersSidebar from "@/components/FiltersSidebar";
-import LoadingSpinner from "@/components/LoadingSpinner";
 import Pagination from "@/components/Pagination";
 import ProductTable from "@/components/ProductTable";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import {
   fetchProductsAsync,

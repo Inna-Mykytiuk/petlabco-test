@@ -54,7 +54,7 @@ A modern Next.js 14 application built with TypeScript, Tailwind CSS, and Redux T
 │   │   ├── page.tsx       # Products listing page
 │   │   └── loading.tsx    # Loading UI
 │   ├── globals.css        # Global styles
-│   └── StoreProvider.tsx  # Redux provider wrapper
+│
 ├── components/            # React components
 │   ├── ui/               # Reusable UI components
 │   │   ├── Button.tsx
@@ -66,15 +66,15 @@ A modern Next.js 14 application built with TypeScript, Tailwind CSS, and Redux T
 │   ├── ProductTable.tsx
 │   ├── ProductCard.tsx
 │   └── Pagination.tsx
+|   └── StoreProvider.tsx  # Redux provider wrapper
 ├── hooks/                # Custom React hooks
 │   ├── useDebounce.ts
-│   └── useAppRedux.ts
+│
 ├── lib/                  # Core logic and utilities
-│   ├── features/         # Redux slices
-│   │   └── products/
-│   │       └── productsSlice.ts
+│   └── productsSlice.ts  # Redux slices
 │   ├── store.ts          # Redux store configuration
 │   ├── api.ts            # API simulation
+│   ├── hooks.ts
 │   ├── types.ts          # TypeScript interfaces
 │   └── utils.ts          # Utility functions
 └── config/               # Configuration files

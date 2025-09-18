@@ -1,5 +1,5 @@
+import { Product } from "@/lib/types";
 import { formatPrice } from "@/lib/utils";
-import { Product } from "@/types";
 import Image from "next/image";
 
 interface ProductCardProps {

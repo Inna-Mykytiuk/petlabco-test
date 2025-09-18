@@ -1,5 +1,10 @@
-import { Product, ProductFilters, ProductsState } from "@/types";
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { Product, ProductFilters, ProductsState } from "@/lib/types";
+import {
+  PayloadAction,
+  createAsyncThunk,
+  createSelector,
+  createSlice,
+} from "@reduxjs/toolkit";
 
 import { fetchProducts } from "./api";
 
@@ -78,16 +83,20 @@ function applyFilters(products: Product[], filters: ProductFilters): Product[] {
   });
 }
 
-// Селектор для отримання продуктів поточної сторінки
-export const selectPaginatedProducts = (state: { products: ProductsState }) => {
-  const { filteredProducts, pagination } = state.products;
-  const { currentPage, itemsPerPage } = pagination;
-
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-
-  return filteredProducts.slice(startIndex, endIndex);
-};
+export const selectPaginatedProducts = createSelector(
+  [
+    (state: { products: ProductsState }) => state.products.filteredProducts,
+    (state: { products: ProductsState }) =>
+      state.products.pagination.currentPage,
+    (state: { products: ProductsState }) =>
+      state.products.pagination.itemsPerPage,
+  ],
+  (filteredProducts, currentPage, itemsPerPage) => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return filteredProducts.slice(startIndex, endIndex);
+  },
+);
 
 // Products slice
 export const productsSlice = createSlice({

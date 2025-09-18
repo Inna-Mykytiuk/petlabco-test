@@ -30,13 +30,10 @@ export default function Pagination() {
   const handlePageChange = (page: number) => {
     dispatch(setCurrentPage(page));
 
-    // Оновлюємо URL з параметрами пагінації
     const params = new URLSearchParams(searchParams.toString());
     params.set("_page", page.toString());
 
-    // Додаємо _limit тільки якщо він відрізняється від дефолтного (12)
     if (itemsPerPage !== 12) {
-      // Змінено з 10 на 12
       params.set("_limit", itemsPerPage.toString());
     } else {
       params.delete("_limit");
@@ -137,7 +134,6 @@ export default function Pagination() {
         <div className="flex items-center space-x-1">
           {pageNumbers.map((page, index) => {
             if (typeof page === "string") {
-              // Render ellipsis - виправлена помилка в className
               return (
                 <span key={page} className="px-3 py-2 text-[#4b5563]">
                   ...
