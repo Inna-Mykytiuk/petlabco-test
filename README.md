@@ -1,10 +1,10 @@
 # PetLab Products App
 
-A modern Next.js 14 application built with TypeScript, Tailwind CSS, and Redux Toolkit for browsing and filtering pet products.
+A modern Next.js 15 application built with TypeScript, Tailwind CSS, and Redux Toolkit for browsing and filtering pet products.
 
 ## 🚀 Features
 
-- **Modern Stack**: Next.js 14 with App Router, TypeScript, Tailwind CSS
+- **Modern Stack**: Next.js 15 with App Router, TypeScript, Tailwind CSS
 - **State Management**: Redux Toolkit with persistence
 - **Responsive Design**: Mobile-first approach with adaptive layouts
 - **Advanced Filtering**: Search, price range, and subscription filters
@@ -14,7 +14,7 @@ A modern Next.js 14 application built with TypeScript, Tailwind CSS, and Redux T
 
 ## 📦 Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 15 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **State Management**: Redux Toolkit + Redux Persist
