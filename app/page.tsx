@@ -1,11 +1,14 @@
+import Image from "next/image";
 import Link from "next/link";
+
+const Dog = "/images/dog2.avif";
 
 export default function HomePage() {
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-white">
+    <div className="bg-gradient-to-b from-[#F5F5F1] to-white">
       {/* Hero Section */}
       <section className="container mx-auto px-4 pt-16">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="mb-12 grid items-center gap-12 xl:grid-cols-2">
           {/* Content */}
           <div className="space-y-8">
             <div className="space-y-4">
@@ -19,26 +22,28 @@ export default function HomePage() {
                 everything for your pet health and wellbeing.
               </p>
             </div>
+            {/* CTA Buttons */}
+            <div className="flex">
+              <Link
+                href="/products"
+                className="btn btn-primary rounded-lg bg-[#2563eb] px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105"
+              >
+                Browse Products
+              </Link>
+            </div>
           </div>
 
           {/* Hero Image */}
           <div className="relative">
-            <div className="from-primary-100 to-primary-200 flex aspect-square flex-col items-center justify-center gap-4 rounded-3xl bg-gradient-to-br">
-              <div className="text-center text-[#2563eb]">
-                <div className="mb-4 text-6xl">🐾</div>
-                <div className="text-2xl font-semibold">Pet Care Products</div>
-                <div className="text-lg">Premium Quality</div>
-              </div>
-              {/* CTA Buttons */}
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href="/products"
-                  className="btn btn-primary rounded-lg px-8 py-4 text-lg font-semibold shadow-lg transition-all hover:scale-105"
-                >
-                  Browse Products
-                </Link>
-              </div>
-            </div>
+            <Image
+              src={Dog}
+              alt="Happy dog looking up"
+              width={500}
+              height={500}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="h-full w-full rounded-3xl object-cover"
+              priority
+            />
           </div>
         </div>
       </section>
@@ -54,7 +59,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-3">
           <div className="p-6 text-center">
             <div className="bg-primary-100 mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
               <span className="text-2xl">🏆</span>

@@ -10,8 +10,11 @@ import {
   setCurrentPage,
   setItemsPerPage,
 } from "@/lib/productsSlice";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+
+const Dog = "/images/dog1.avif";
 
 export default function ProductsPage() {
   const dispatch = useAppDispatch();
@@ -74,8 +77,19 @@ export default function ProductsPage() {
 
       <div className="flex flex-col gap-8 xl:flex-row">
         {/* Filters Sidebar */}
-        <div className="max-w-full xl:max-w-[350px]">
+        <div className="flex max-w-full flex-col gap-20 xl:max-w-[350px]">
           <FiltersSidebar />
+          <div className="relative">
+            <Image
+              src={Dog}
+              alt="Happy dog looking up"
+              width={500}
+              height={500}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="h-full w-full rounded-3xl object-cover"
+              priority
+            />
+          </div>
         </div>
 
         {/* Main Content */}
