@@ -12,7 +12,7 @@ export default function Header() {
           </Link>
 
           {/* Navigation */}
-          <nav className="hidden space-x-8 md:flex">
+          <nav className="space-x-8 md:flex">
             <Link
               href="/"
               className="text-[#4b5563] transition-colors hover:text-[#2563eb]"
@@ -26,23 +26,6 @@ export default function Header() {
               Products
             </Link>
           </nav>
-
-          {/* Mobile menu button */}
-          <button className="p-2 md:hidden">
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
         </div>
       </div>
     </header>
