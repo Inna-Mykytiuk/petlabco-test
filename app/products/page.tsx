@@ -60,15 +60,6 @@ export default function ProductsPage() {
     );
   }
 
-  const startResult =
-    pagination.totalItems > 0
-      ? (pagination.currentPage - 1) * pagination.itemsPerPage + 1
-      : 0;
-  const endResult = Math.min(
-    pagination.currentPage * pagination.itemsPerPage,
-    pagination.totalItems,
-  );
-
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Page Header */}
@@ -95,20 +86,6 @@ export default function ProductsPage() {
             </div>
           ) : (
             <>
-              {/* Results Header */}
-              <div className="mb-6 flex items-center justify-between">
-                <div className="text-sm text-[#4b5563]">
-                  {pagination.totalItems > 0 ? (
-                    <>
-                      Showing {startResult}-{endResult} of{" "}
-                      {pagination.totalItems} results
-                    </>
-                  ) : (
-                    "No results found"
-                  )}
-                </div>
-              </div>
-
               {/* Products Table/Grid */}
               {filteredProducts.length > 0 ? (
                 <>

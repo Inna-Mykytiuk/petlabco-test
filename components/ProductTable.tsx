@@ -5,18 +5,32 @@ import { selectPaginatedProducts } from "@/lib/productsSlice";
 import { Product } from "@/lib/types";
 import { formatPrice } from "@/lib/utils";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 import ProductCard from "./ProductCard";
 
+const FALLBACK_IMAGE = "/images/generated-image.png";
+
 export default function ProductTable() {
   const currentProducts = useAppSelector(selectPaginatedProducts);
+  const router = useRouter();
+  const [failedImages, setFailedImages] = useState<Set<number>>(new Set());
+
+  const handleProductClick = (productId: number) => {
+    router.push(`/products/${productId}`);
+  };
+
+  const handleImageError = (productId: number) => {
+    setFailedImages((prev) => new Set(prev).add(productId));
+  };
 
   return (
     <>
       {/* Desktop Table View */}
-      <div className="hidden overflow-x-auto lg:block">
-        <table className="table w-full">
-          <thead className="bg-[#f9fafb]">
+      <div className="hidden overflow-x-auto rounded-xl shadow-lg lg:block">
+        <table className="table w-full bg-white">
+          <thead className="bg-gray-200">
             <tr>
               <th className="w-20">Image</th>
               <th>Product</th>
@@ -30,44 +44,35 @@ export default function ProductTable() {
             {currentProducts.map((product: Product) => (
               <tr
                 key={product.id}
-                className="transition-colors hover:bg-[#f9fafb]"
+                className="cursor-pointer transition-colors hover:bg-gray-50"
+                onClick={() => handleProductClick(product.id)}
               >
                 <td>
                   <div className="relative h-12 w-12 overflow-hidden rounded-lg bg-gray-200">
-                    {product.image_src ? (
+                    {product.image_src && !failedImages.has(product.id) ? (
                       <Image
                         src={product.image_src}
                         alt={product.title}
                         fill
                         className="object-cover"
                         sizes="48px"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = "none";
-                        }}
+                        onError={() => handleImageError(product.id)}
                       />
                     ) : (
-                      <div className="flex h-full w-full items-center justify-center bg-gray-100">
-                        <svg
-                          className="h-6 w-6 text-gray-400"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
-                      </div>
+                      <Image
+                        src={FALLBACK_IMAGE}
+                        alt={`${product.title} placeholder`}
+                        fill
+                        priority
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover object-center"
+                      />
                     )}
                   </div>
                 </td>
                 <td>
                   <div>
-                    <div className="font-medium text-[#111827]">
+                    <div className="hover:text-primary-600 font-medium text-[#111827] transition-colors">
                       {product.title}
                     </div>
                     <div className="text-sm text-[#6b7280]">
@@ -111,7 +116,7 @@ export default function ProductTable() {
       </div>
 
       {/* Mobile Card View */}
-      <div className="space-y-4 lg:hidden">
+      <div className="flex flex-col gap-4 space-y-4 lg:hidden">
         {currentProducts.map((product: Product) => (
           <ProductCard key={product.id} product={product} />
         ))}

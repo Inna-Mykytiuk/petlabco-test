@@ -112,7 +112,7 @@ export default function Pagination() {
           size="sm"
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="disabled:cursor-not-allowed disabled:opacity-50"
+          className="cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
         >
           <svg
             className="mr-1 h-4 w-4"
@@ -149,7 +149,7 @@ export default function Pagination() {
                 variant={isCurrentPage ? "primary" : "ghost"}
                 size="sm"
                 onClick={() => handlePageChange(page)}
-                className={`${isCurrentPage ? "bg-[#2563eb] text-white" : "hover:bg-gray-100"} min-w-[40px]`}
+                className={`${isCurrentPage ? "bg-[#2563eb] text-white" : "hover:bg-gray-100"} min-w-[40px] cursor-pointer`}
               >
                 {page}
               </Button>
@@ -163,7 +163,7 @@ export default function Pagination() {
           size="sm"
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="disabled:cursor-not-allowed disabled:opacity-50"
+          className="cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
         >
           Next
           <svg

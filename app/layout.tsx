@@ -30,7 +30,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <StoreProvider>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 bg-gradient-to-b from-blue-50 to-white">
+            {children}
+          </main>
         </StoreProvider>
       </body>
     </html>

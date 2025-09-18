@@ -9,7 +9,8 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: ["Chews", "Dog"],
     published: true,
     url: "https://thepetlabco.com/products/joint-chews-for-dogs",
-    image_src: "https://via.placeholder.com/300x300.png?text=Joint+Care+Chews",
+    image_src:
+      "https://cdn.cms.thepetlabco.com/hero_PBC_pork_sub_ut40_gift_b9d1b68166.jpg?format=auto&width=1080",
     option_value: "Single Pack",
     sku: "JCSC1",
     price: 42.29,
@@ -24,7 +25,8 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: ["Chews", "Dog"],
     published: true,
     url: "https://thepetlabco.com/products/skin-coat",
-    image_src: "https://via.placeholder.com/300x300.png?text=Dental+Chews",
+    image_src:
+      "https://cdn.cms.thepetlabco.com/hero_SNC_pork_sub_ut40_gift_29f5708997.png?format=auto&width=1080",
     option_value: "Single Pack",
     sku: "DHC1",
     price: 29.95,
@@ -70,7 +72,8 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: ["Chews", "Dog"],
     published: true,
     url: "https://thepetlabco.com/products/probiotic-chews-dogs",
-    image_src: "https://via.placeholder.com/300x300.png?text=Probiotic+Chews",
+    image_src:
+      "https://cdn.cms.thepetlabco.com/hero_PBC_pork_sub_ut40_gift_b9d1b68166.jpg?format=auto&width=1080",
     option_value: "Value Pack",
     sku: "MVC4",
     price: 127,

@@ -7,10 +7,6 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 export async function fetchProducts(): Promise<Product[]> {
   await delay(750);
 
-  if (Math.random() < 0.05) {
-    throw new Error("Network error: Failed to fetch products");
-  }
-
   return MOCK_PRODUCTS.filter((p) => p.published);
 }
 

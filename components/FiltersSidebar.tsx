@@ -59,7 +59,7 @@ export default function FiltersSidebar() {
   };
 
   return (
-    <div className="sticky top-24 h-fit rounded-lg border border-gray-200 bg-white p-6">
+    <div className="sticky top-24 h-fit rounded-lg border border-gray-200 bg-white p-6 shadow-lg">
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-lg font-semibold text-[#111827]">Filters</h2>
         <Button

@@ -1,9 +1,23 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
-    domains: ["via.placeholder.com", "cdn.builder.io"],
+    domains: [
+      "via.placeholder.com",
+      "thepetlabco.com",
+      "cdn.builder.io",
+      "cdn.cms.thepetlabco.com",
+    ],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+
+    unoptimized: false,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com",
+      },
+    ],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

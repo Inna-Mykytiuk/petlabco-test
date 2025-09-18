@@ -23,21 +23,20 @@ export default function HomePage() {
 
           {/* Hero Image */}
           <div className="relative">
-            <div className="from-primary-100 to-primary-200 flex aspect-square items-center justify-center rounded-3xl bg-gradient-to-br">
+            <div className="from-primary-100 to-primary-200 flex aspect-square flex-col items-center justify-center gap-4 rounded-3xl bg-gradient-to-br">
               <div className="text-center text-[#2563eb]">
                 <div className="mb-4 text-6xl">🐾</div>
                 <div className="text-2xl font-semibold">Pet Care Products</div>
                 <div className="text-lg">Premium Quality</div>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <Link
-                    href="/products"
-                    className="btn btn-primary rounded-lg px-8 py-4 text-lg font-semibold shadow-lg transition-all hover:scale-105"
-                  >
-                    Browse Products
-                  </Link>
-                </div>
+              </div>
+              {/* CTA Buttons */}
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Link
+                  href="/products"
+                  className="btn btn-primary rounded-lg px-8 py-4 text-lg font-semibold shadow-lg transition-all hover:scale-105"
+                >
+                  Browse Products
+                </Link>
               </div>
             </div>
           </div>
