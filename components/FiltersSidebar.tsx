@@ -21,7 +21,6 @@ export default function FiltersSidebar() {
   // Debounce search input
   const debouncedSearch = useDebounce(localSearch, 300);
 
-  // Update Redux store when debounced search changes
   useEffect(() => {
     if (debouncedSearch !== filters.search) {
       dispatch(setFilters({ search: debouncedSearch }));
@@ -137,7 +136,9 @@ export default function FiltersSidebar() {
           <div className="text-sm text-[#4b5563]">
             <div className="mb-2 font-medium">Active Filters:</div>
             <ul className="space-y-1 text-xs">
-              {filters.search && <li>• Search: "{filters.search}"</li>}
+              {filters.search && (
+                <li>• Search: &quot;{filters.search}&quot;</li>
+              )}
               {(filters.priceMin || filters.priceMax) && (
                 <li>
                   • Price: {filters.priceMin || "0"} - {filters.priceMax || "∞"}

@@ -60,7 +60,6 @@ export default function ProductsPage() {
     );
   }
 
-  // Розрахувати результати для поточної сторінки
   const startResult =
     pagination.totalItems > 0
       ? (pagination.currentPage - 1) * pagination.itemsPerPage + 1
@@ -114,7 +113,6 @@ export default function ProductsPage() {
               {filteredProducts.length > 0 ? (
                 <>
                   <ProductTable />
-                  {/* Завжди показувати пагінацію якщо є більше однієї сторінки */}
                   <Pagination />
                 </>
               ) : (

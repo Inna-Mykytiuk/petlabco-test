@@ -4,7 +4,7 @@ export default function HomePage() {
   return (
     <div className="bg-gradient-to-b from-blue-50 to-white">
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 pt-16">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Content */}
           <div className="space-y-8">
@@ -45,7 +45,7 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 pb-16">
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-3xl font-bold text-[#111827]">
             Why Choose PetLab?
