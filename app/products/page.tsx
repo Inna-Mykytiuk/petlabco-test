@@ -79,7 +79,7 @@ export default function ProductsPage() {
         {/* Filters Sidebar */}
         <div className="flex max-w-full flex-col gap-20 xl:max-w-[350px]">
           <FiltersSidebar />
-          <div className="relative">
+          <div className="relative hidden xl:block">
             <Image
               src={Dog}
               alt="Happy dog looking up"
