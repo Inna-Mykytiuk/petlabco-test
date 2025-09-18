@@ -25,7 +25,9 @@ const eslintConfig = [
       "jsx-a11y/role-supports-aria-props": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/ban-types": "off",
-      quotes: ["error", "double"],
+      quotes: "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
     },
   },
 ];

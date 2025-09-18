@@ -1,0 +1,38 @@
+import { configureStore } from "@reduxjs/toolkit";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
+import { productsSlice } from "./productsSlice";
+
+// Persist configuration
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["products"],
+};
+
+// Create persisted reducer
+const persistedReducer = persistReducer(persistConfig, productsSlice.reducer);
+
+// Create store function (per request pattern for Next.js App Router)
+export const makeStore = () => {
+  const store = configureStore({
+    reducer: {
+      products: persistedReducer,
+    },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: ["persist/PERSIST", "persist/REHYDRATE"],
+        },
+      }),
+  });
+
+  return store;
+};
+
+// Infer the type of makeStore
+export type AppStore = ReturnType<typeof makeStore>;
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];
