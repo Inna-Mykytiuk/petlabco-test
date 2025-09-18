@@ -132,6 +132,8 @@ The app handles these specific test cases:
 - Filter Subscription "Yes" + Search "Cat": 5 results
 - Pagination works across all filter states
 
+(I added more data so the values ​​may vary!!!)
+
 ## 🚀 Deployment
 
 Build the application:
